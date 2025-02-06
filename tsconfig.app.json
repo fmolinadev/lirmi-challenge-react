@@ -23,6 +23,10 @@
       "@interface/*": ["src/interface/*"],
       "@utils/*": ["src/utils/*"],
       "@router/*": ["src/router/*"],
+      "@services/*": ["src/services/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@store/*": ["src/store/*"],
+      "@mocks/*": ["src/mocks/*"],
 		},
 
     /* Linting */
