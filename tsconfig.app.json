@@ -28,6 +28,7 @@
       "@store/*": ["src/store/*"],
       "@mocks/*": ["src/mocks/*"],
       "@layouts/*": ["src/layouts/*"],
+      "@images/*": ["src/assets/images/*"],
 		},
 
     /* Linting */

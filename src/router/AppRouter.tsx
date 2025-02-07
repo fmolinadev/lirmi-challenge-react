@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import { RootPage, HomePage, ErrorPage, SubjectsPage } from "@/pages";
-import { ErrorLayout, MainLayout, RootLayout } from "@/layouts";
+import { ErrorLayout, MainLayout } from "@/layouts";
 import { CoursesRoutes } from "./CoursesRoutes";
 import { StudentsRoutes } from "./StudentsRoutes";
 
 export function AppRouter() {
   return (
     <Routes>
-      <Route element={<RootLayout />}>
+      <Route>
         <Route path="/" element={<RootPage />} />
       </Route>
       <Route element={<MainLayout />}>
