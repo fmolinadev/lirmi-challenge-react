@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { RootPage, HomePage, ErrorPage, SubjectsPage } from "@/pages";
+import { MainLayout } from "@/layouts";
 import { CoursesRoutes } from "./CoursesRoutes";
 import { StudentsRoutes } from "./StudentsRoutes";
 
@@ -9,7 +10,7 @@ export function AppRouter() {
       <Route>
         <Route path="/" element={<RootPage />} />
       </Route>
-      <Route>
+      <Route element={<MainLayout />}>
         <Route path="/home" element={<HomePage />} />
         <Route path="/subject" element={<SubjectsPage />} />
         <Route path="/course/*" element={<CoursesRoutes />} />

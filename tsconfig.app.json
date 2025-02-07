@@ -27,6 +27,7 @@
       "@hooks/*": ["src/hooks/*"],
       "@store/*": ["src/store/*"],
       "@mocks/*": ["src/mocks/*"],
+      "@layouts/*": ["src/layouts/*"],
 		},
 
     /* Linting */

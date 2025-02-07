@@ -15,3 +15,9 @@
   --color-text-light: #ffffffff;
   --color-text-dark: #1a1a27;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
