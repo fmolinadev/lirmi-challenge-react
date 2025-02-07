@@ -1,0 +1,37 @@
+.root-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.image-layout {
+  flex: 1;
+  width: 100%;
+  object-fit: cover;
+}
+
+.content-layout {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .root-layout {
+    flex-direction: row;
+  }
+
+  .image-layout {
+    width: 50%;
+    height: 100%;
+  }
+
+  .content-layout {
+    width: 50%;
+    text-align: left;
+  }
+}

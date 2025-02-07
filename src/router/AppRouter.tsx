@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import { RootPage, HomePage, ErrorPage, SubjectsPage } from "@/pages";
-import { MainLayout } from "@/layouts";
+import { ErrorLayout, MainLayout, RootLayout } from "@/layouts";
 import { CoursesRoutes } from "./CoursesRoutes";
 import { StudentsRoutes } from "./StudentsRoutes";
 
 export function AppRouter() {
   return (
     <Routes>
-      <Route>
+      <Route element={<RootLayout />}>
         <Route path="/" element={<RootPage />} />
       </Route>
       <Route element={<MainLayout />}>
@@ -16,7 +16,9 @@ export function AppRouter() {
         <Route path="/course/*" element={<CoursesRoutes />} />
         <Route path="/students/*" element={<StudentsRoutes />} />
       </Route>
-      <Route path="*" element={<ErrorPage />} />
+      <Route element={<ErrorLayout />}>
+        <Route path="*" element={<ErrorPage />} />
+      </Route>
     </Routes>
   );
 }
