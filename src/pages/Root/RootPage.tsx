@@ -12,7 +12,15 @@ export const RootPage = () => {
           aria-label="Foto de docentes"
         />
       </div>
-      <div className={styles["content-layout"]}>Iniciar</div>
+      <div className={styles["content-layout"]}>
+        <div className={styles["content-text"]}>
+          <h1>El software más usado por escuelas</h1>
+          <p>
+            Comenzá a optimizar la gestión de tu colegio e impulsar el
+            desarrollo de los docentes con Lirmi
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
