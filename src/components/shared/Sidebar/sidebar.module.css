@@ -1,6 +1,37 @@
 .sidebar {
   grid-area: sidebar;
-  background-color: #343a40;
-  color: #ffffff;
+  background-color: var(--color-background-base);
+  color: var(--branding-violet);
   padding: 1rem;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.sidebar-hidden {
+  transform: translateX(-100%);
+  width: 0;
+  display: none;
+}
+
+.sidebar-item {
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  transition: transform 0.1s ease, width 0.1s ease;
+}
+
+.sidebar-item-hidden {
+  transform: translateX(-100%);
+  width: 0;
+}
+
+.sidebar-item:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sidebar-icon {
+  color: #6c757d;
+}
+
+.sidebar-icon:hover {
+  color: #495057;
 }
