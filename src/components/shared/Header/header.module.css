@@ -1,5 +1,14 @@
 .header {
   grid-area: header;
-  background-color: #f8f9fa;
+  background-color: var(--color-background-base);
   padding: 1rem;
+  border-bottom: 2px solid var(--color-border);
+  box-shadow: var(--shadow-light-bottom);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  vertical-align: middle;
 }

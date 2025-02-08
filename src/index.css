@@ -9,9 +9,12 @@
   --branding-violet: #5016e1;
   --branding-yellow: #f7d718;
   --branding-pink: #bd1dda;
-  --color-border: #eeeeee;
+  --color-border: #dadada;
   --color-text-light: #ffffffff;
   --color-text-dark: #1a1a27;
+  --color-background-base: #f8f9fa;
+  --shadow-light: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-light-bottom: 0px 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 body {

@@ -7,6 +7,11 @@
     "sidebar main"
     "sidebar footer";
   height: 100vh;
+  transition: grid-template-columns 0.3s ease;
+}
+
+.layout-container.sidebar-hidden {
+  grid-template-columns: 0 1fr;
 }
 
 .main-content {
