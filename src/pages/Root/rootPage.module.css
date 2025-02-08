@@ -68,6 +68,13 @@
   line-height: 1.2;
 }
 
+.content-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
 @media (max-width: 767px) {
   .image-container {
     display: none;

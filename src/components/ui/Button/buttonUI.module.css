@@ -1,0 +1,62 @@
+/* Button.module.css */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  transition: all 0.3s ease, filter 0.3s ease;
+}
+
+.primary {
+  background-color: var(--branding-violet);
+  border: 1px solid var(--branding-violet);
+  color: white;
+}
+
+.primary:hover {
+  filter: brightness(1.2);
+  cursor: pointer;
+}
+
+.secondary {
+  background-color: var(--branding-skyblue);
+  border: 1px solid var(--branding-skyblue);
+  color: white;
+}
+
+.secondary:hover {
+  cursor: pointer;
+  filter: brightness(1.1);
+}
+
+.outlined {
+  background-color: transparent;
+  color: var(--branding-pink);
+  border: 1px solid var(--branding-pink);
+}
+
+.outlined:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}
+
+.disabled {
+  background-color: #d6d6d6;
+  color: #a1a1a1;
+  cursor: not-allowed;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.button.disabled .icon {
+  color: #b0b0b0;
+  opacity: 0.6;
+}
