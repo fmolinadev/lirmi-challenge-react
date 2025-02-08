@@ -1,4 +1,6 @@
-export const coursesMock = [
+import { CourseInterface } from "@/interface";
+
+export const coursesMock: CourseInterface[] = [
   {
     id: 1,
     name: "Curso 1",
