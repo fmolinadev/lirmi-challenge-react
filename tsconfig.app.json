@@ -29,6 +29,7 @@
       "@mocks/*": ["src/mocks/*"],
       "@layouts/*": ["src/layouts/*"],
       "@images/*": ["src/assets/images/*"],
+      "@enums/*": ["src/enums/*"],
 		},
 
     /* Linting */
