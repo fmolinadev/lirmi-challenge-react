@@ -18,6 +18,8 @@ export default defineConfig({
       "@store": path.resolve(__dirname, "./src/store"),
       "@mocks": path.resolve(__dirname, "./src/mocks"),
       "@layouts": path.resolve(__dirname, "./src/layouts"),
+      "@images": path.resolve(__dirname, "./src/assets/images"),
+      "@enums": path.resolve(__dirname, "./src/enums"),
     },
   },
 });
