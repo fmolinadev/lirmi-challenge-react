@@ -9,7 +9,7 @@ export function AppRouter() {
   return (
     <Routes>
       <Route>
-        <Route path="/" element={<RootPage />} />
+        <Route path={`${AppRoutesEnum.ROOT}`} element={<RootPage />} />
       </Route>
       <Route element={<MainLayout />}>
         <Route path={`${AppRoutesEnum.HOME}/*`} element={<HomePage />} />
