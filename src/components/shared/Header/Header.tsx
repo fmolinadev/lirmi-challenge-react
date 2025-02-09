@@ -10,7 +10,7 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
   return (
     <header className={styles["header"]}>
       <div className={styles["container"]}>
-        <div>
+        <div id="toggle-panel">
           <Tooltip title="Mostrar/Ocultar panel" placement="bottom-start">
             <IconButton
               size="small"
