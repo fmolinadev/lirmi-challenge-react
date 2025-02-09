@@ -2,8 +2,9 @@
   grid-area: sidebar;
   background-color: var(--color-background-base);
   color: var(--branding-violet);
-  padding: 1rem;
   transition: transform 0.3s ease, width 0.3s ease;
+  padding: 0.5rem;
+  box-shadow: var(--shadow-light-right);
 }
 
 .sidebar-hidden {
