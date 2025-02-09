@@ -19,16 +19,16 @@ export const CoursesPage = () => {
       field: "subjects",
       headerName: "Asig. Vinculadas",
       width: 140,
-      valueGetter: (params) => {
-        return Array.isArray(params.value) ? params.value.length : 0;
+      valueGetter: (params: number[]) => {
+        return Array.isArray(params) ? params.length : 0;
       },
     },
     {
       field: "students",
       headerName: "Estud. Vinculados",
       width: 140,
-      valueGetter: (params) => {
-        return Array.isArray(params.value) ? params.value.length : 0;
+      valueGetter: (params: number[]) => {
+        return Array.isArray(params) ? params.length : 0;
       },
     },
   ];
