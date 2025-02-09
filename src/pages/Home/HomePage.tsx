@@ -15,6 +15,7 @@ export const HomePage = () => {
       <p>Cursos: {totalCourses}</p>
       <p>Estudiantes: {totalStudents}</p>
       <p>Asignaturas: {totalSubjects}</p>
+      <br />
     </div>
   );
 };

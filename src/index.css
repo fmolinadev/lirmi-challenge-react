@@ -15,6 +15,7 @@
   --color-background-base: #f8f9fa;
   --shadow-light: 0px 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-light-bottom: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  --shadow-light-right: 4px 0px 6px rgba(0, 0, 0, 0.15);
 }
 
 body {

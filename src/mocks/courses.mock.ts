@@ -3,15 +3,15 @@ import { CourseInterface } from "@/interface";
 export const coursesMock: CourseInterface[] = [
   {
     id: 1,
-    name: "Curso 1",
-    color: "#FF5733",
+    name: "Primaria 1",
+    color: "#0000ff",
     subjects: [],
     students: [],
   },
   {
     id: 2,
-    name: "Curso 2",
-    color: "#FF2733",
+    name: "Primaria 2",
+    color: "#00913f",
     subjects: [],
     students: [],
   },

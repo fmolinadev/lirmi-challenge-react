@@ -43,6 +43,7 @@ export const Sidebar = ({
       className={`${styles["sidebar"]} ${
         !isSidebarVisible ? styles["sidebar-hidden"] : ""
       }`}
+      id="panel"
     >
       <MenuList>
         {routes.map((route) => (
