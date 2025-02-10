@@ -2,14 +2,18 @@ import { IDataSource, StudentInterface } from "@/interface";
 import { studentsMock } from "@/mocks";
 
 export class StudentsService implements IDataSource<StudentInterface> {
-  private students = [...studentsMock];
+  private students: StudentInterface[];
+
+  constructor() {
+    this.students = studentsMock.map((student) => ({ ...student }));
+  }
 
   getAll(): StudentInterface[] {
-    return this.students;
+    return [...this.students];
   }
 
   add(student: StudentInterface): void {
-    this.students.push(student);
+    this.students.push({ ...student });
   }
 
   update(id: number, updatedStudent: Partial<StudentInterface>): void {
