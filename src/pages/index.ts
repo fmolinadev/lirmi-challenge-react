@@ -5,4 +5,3 @@ export * from "./Courses";
 export * from "./Students";
 export * from "./Subjects";
 export * from "./CourseDetail";
-export * from "./StudentDetail";
