@@ -1,10 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import { GridColDef } from "@mui/x-data-grid";
+import { Tooltip } from "@mui/material";
 import { useCourseStore } from "@/store";
 import { CourseInterface } from "@/interface";
 import { TableUI } from "@/components";
-import { BookIcon } from "@/assets";
+import { BookIcon, EyeViewIcon } from "@/assets";
 
 export const CoursesPage = () => {
+  const navigate = useNavigate();
   const { courses } = useCourseStore();
 
   const columns: GridColDef[] | CourseInterface[] = [
@@ -31,12 +34,31 @@ export const CoursesPage = () => {
         return Array.isArray(params) ? params.length : 0;
       },
     },
+    {
+      field: "action",
+      headerName: "Acción",
+      width: 120,
+      renderCell: (params) => (
+        <Tooltip title="Ver detalles del curso" placement="bottom-start">
+          <EyeViewIcon
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate(`/course/${params.row.id}`)}
+          />
+        </Tooltip>
+      ),
+    },
   ];
 
   return (
     <div>
       <h1>Cursos</h1>
-      <TableUI rows={courses} columns={columns} pageSizeOptions={[5, 10, 15]} />
+      <section>
+        <TableUI
+          rows={courses}
+          columns={columns}
+          pageSizeOptions={[5, 10, 15]}
+        />
+      </section>
     </div>
   );
 };
