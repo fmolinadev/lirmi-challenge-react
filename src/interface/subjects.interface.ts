@@ -1,5 +1,5 @@
 export interface SubjectInterface {
   id: number;
   name: string;
-  description?: string;
+  description: string | null;
 }

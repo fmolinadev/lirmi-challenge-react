@@ -12,6 +12,7 @@ import { SubjectAddIcon, SubjectDeleteIcon, SubjectEditIcon } from "@/assets";
 import { SubjectInterface } from "@/interface";
 import { validateSubject } from "@/utils";
 import styles from "./subjects.module.css";
+import { toast } from "sonner";
 
 export const SubjectsPage = () => {
   const { subjects, addSubject, deleteSubject, updateSubject } =
@@ -43,6 +44,7 @@ export const SubjectsPage = () => {
   const handleDeleteSubject = () => {
     if (selectedSubject) {
       deleteSubject(selectedSubject.id);
+      toast.info("Se elimino la asignatura");
       handleCloseDialog();
     }
   };
@@ -97,6 +99,7 @@ export const SubjectsPage = () => {
     setDescriptionNewSubject(null);
     setNameError(null);
     setDescriptionError(null);
+    toast.success("Asignatura creada con éxito!");
     handleCloseModalAdd();
   };
 
@@ -123,6 +126,7 @@ export const SubjectsPage = () => {
       setDescriptionNewSubject(null);
       setNameError(null);
       setDescriptionError(null);
+      toast.info("Se edito la asignatura correctamente");
       handleCloseModalEdit();
     }
   };
