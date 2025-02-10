@@ -4,3 +4,7 @@ export * from "./HomeIcon";
 export * from "./StudentIcon";
 export * from "./SubjectIcon";
 export * from "./BookIcon";
+export * from "./EyeViewIcon";
+export * from "./SubjectAddIcon";
+export * from "./SubjectEditIcon";
+export * from "./SubjectDeleteIcon";
