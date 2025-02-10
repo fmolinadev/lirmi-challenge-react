@@ -1,9 +1,14 @@
 import { Route, Routes } from "react-router-dom";
-import { RootPage, HomePage, ErrorPage, SubjectsPage } from "@/pages";
+import {
+  RootPage,
+  HomePage,
+  ErrorPage,
+  SubjectsPage,
+  StudentsPage,
+} from "@/pages";
 import { ErrorLayout, MainLayout } from "@/layouts";
 import { AppRoutesEnum } from "@/enums";
 import { CoursesRoutes } from "./CoursesRoutes";
-import { StudentsRoutes } from "./StudentsRoutes";
 
 export function AppRouter() {
   return (
@@ -17,7 +22,7 @@ export function AppRouter() {
         <Route path={`${AppRoutesEnum.COURSE}/*`} element={<CoursesRoutes />} />
         <Route
           path={`${AppRoutesEnum.STUDENTS}/*`}
-          element={<StudentsRoutes />}
+          element={<StudentsPage />}
         />
       </Route>
       <Route element={<ErrorLayout />}>

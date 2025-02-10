@@ -2,14 +2,18 @@ import { IDataSource, SubjectInterface } from "@/interface";
 import { subjectsMock } from "@/mocks";
 
 export class SubjectsService implements IDataSource<SubjectInterface> {
-  private subjects = [...subjectsMock];
+  private subjects: SubjectInterface[];
+
+  constructor() {
+    this.subjects = subjectsMock.map((subject) => ({ ...subject }));
+  }
 
   getAll(): SubjectInterface[] {
-    return this.subjects;
+    return [...this.subjects];
   }
 
   add(subject: SubjectInterface): void {
-    this.subjects.push(subject);
+    this.subjects.push({ ...subject });
   }
 
   update(id: number, updatedSubject: Partial<SubjectInterface>): void {

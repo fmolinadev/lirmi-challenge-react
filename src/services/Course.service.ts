@@ -2,14 +2,18 @@ import { IDataSource, CourseInterface } from "@/interface";
 import { coursesMock } from "@/mocks";
 
 export class CourseService implements IDataSource<CourseInterface> {
-  private courses = [...coursesMock];
+  private courses: CourseInterface[];
+
+  constructor() {
+    this.courses = coursesMock.map((course) => ({ ...course }));
+  }
 
   getAll(): CourseInterface[] {
-    return this.courses;
+    return [...this.courses];
   }
 
   add(course: CourseInterface): void {
-    this.courses.push(course);
+    this.courses.push({ ...course });
   }
 
   update(id: number, updatedCourse: Partial<CourseInterface>): void {
@@ -23,30 +27,50 @@ export class CourseService implements IDataSource<CourseInterface> {
   }
 
   linkSubject(courseId: number, subjectId: number): void {
-    const course = this.courses.find((c) => c.id === courseId);
-    if (course && !course.subjects.includes(subjectId)) {
-      course.subjects.push(subjectId);
-    }
+    this.courses = this.courses.map((course) => {
+      if (course.id === courseId && !course.subjects.includes(subjectId)) {
+        return {
+          ...course,
+          subjects: [...course.subjects, subjectId],
+        };
+      }
+      return course;
+    });
   }
 
   unlinkSubject(courseId: number, subjectId: number): void {
-    const course = this.courses.find((c) => c.id === courseId);
-    if (course) {
-      course.subjects = course.subjects.filter((id) => id !== subjectId);
-    }
+    this.courses = this.courses.map((course) => {
+      if (course.id === courseId) {
+        return {
+          ...course,
+          subjects: course.subjects.filter((id) => id !== subjectId),
+        };
+      }
+      return course;
+    });
   }
 
   linkStudent(courseId: number, studentId: number): void {
-    const course = this.courses.find((c) => c.id === courseId);
-    if (course && !course.students.includes(studentId)) {
-      course.students.push(studentId);
-    }
+    this.courses = this.courses.map((course) => {
+      if (course.id === courseId && !course.students.includes(studentId)) {
+        return {
+          ...course,
+          students: [...course.students, studentId],
+        };
+      }
+      return course;
+    });
   }
 
   unlinkStudent(courseId: number, studentId: number): void {
-    const course = this.courses.find((c) => c.id === courseId);
-    if (course) {
-      course.students = course.students.filter((id) => id !== studentId);
-    }
+    this.courses = this.courses.map((course) => {
+      if (course.id === courseId) {
+        return {
+          ...course,
+          students: course.students.filter((id) => id !== studentId),
+        };
+      }
+      return course;
+    });
   }
 }

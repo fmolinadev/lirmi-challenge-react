@@ -7,7 +7,7 @@ interface BaseTableProps<T> {
   pageSizeOptions?: number[];
 }
 
-export const TableUI = <T extends { id: string | number }>({
+export const TableUI = <T extends { id: number }>({
   rows,
   columns,
   pageSizeOptions = [5, 10],
@@ -15,7 +15,7 @@ export const TableUI = <T extends { id: string | number }>({
   const paginationModel = { page: 0, pageSize: pageSizeOptions[0] };
 
   return (
-    <Paper sx={{ height: "100%", width: "100%" }}>
+    <Paper /* sx={{ height: "100%", width: "100%" }} */>
       <DataGrid
         rows={rows}
         columns={columns}
