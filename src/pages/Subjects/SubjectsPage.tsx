@@ -88,19 +88,21 @@ export const SubjectsPage = () => {
     const maxId =
       subjects.length > 0 ? Math.max(...subjects.map((sub) => sub.id)) : 0;
 
-    const newSubject: SubjectInterface = {
-      id: maxId + 1,
-      name: nameNewSubject.trim(),
-      description: descriptionNewSubject?.trim() ?? "",
-    };
+    if (nameNewSubject) {
+      const newSubject: SubjectInterface = {
+        id: maxId + 1,
+        name: nameNewSubject.trim(),
+        description: descriptionNewSubject?.trim() ?? "",
+      };
 
-    addSubject(newSubject);
-    setNameNewSubject(null);
-    setDescriptionNewSubject(null);
-    setNameError(null);
-    setDescriptionError(null);
-    toast.success("Asignatura creada con éxito!");
-    handleCloseModalAdd();
+      addSubject(newSubject);
+      setNameNewSubject(null);
+      setDescriptionNewSubject(null);
+      setNameError(null);
+      setDescriptionError(null);
+      toast.success("Asignatura creada con éxito!");
+      handleCloseModalAdd();
+    }
   };
 
   const handleAcceptUpdateSubject = () => {
