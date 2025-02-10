@@ -208,6 +208,7 @@ export const SubjectsPage = () => {
         descriptionModal="Inserta el titulo de la asignatura y en caso que cuentes conn una descripción, icorporala"
         onClose={handleCloseModalAdd}
         onAccept={() => handleAcceptCreateSubject()}
+        buttonText="Crear"
       >
         <div className={styles["children-container"]}>
           <TextField
@@ -241,6 +242,7 @@ export const SubjectsPage = () => {
         descriptionModal="Modifica los detalles de la asignatura"
         onClose={handleCloseModalEdit}
         onAccept={() => handleAcceptUpdateSubject()}
+        buttonText="Editar"
       >
         <div className={styles["children-container"]}>
           <TextField

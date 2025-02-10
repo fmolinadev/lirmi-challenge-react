@@ -10,6 +10,7 @@ interface Props {
   title: string;
   descriptionModal?: string;
   children: React.ReactNode;
+  buttonText: string;
 }
 
 export const ModalUI: React.FC<Props> = ({
@@ -19,6 +20,7 @@ export const ModalUI: React.FC<Props> = ({
   title,
   descriptionModal,
   children,
+  buttonText,
 }) => {
   return (
     <Modal open={open} onClose={onClose}>
@@ -32,7 +34,7 @@ export const ModalUI: React.FC<Props> = ({
         <div>{children}</div>
         <div className={styles["actions"]}>
           <ButtonUI variant="outlined" onClick={onAccept} autoFocus>
-            Agregar
+            {buttonText}
           </ButtonUI>
         </div>
       </div>

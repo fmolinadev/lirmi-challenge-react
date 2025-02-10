@@ -251,6 +251,7 @@ export const StudentsPage = () => {
         descriptionModal="Completa el perfil del nuevo estudiante. Recorda que puedes editar la información luego de crearlo."
         onClose={handleCloseModalAdd}
         onAccept={handleAceptAddStudent}
+        buttonText="Agregar"
       >
         <div className={styles["children-students"]}>
           <TextField
@@ -314,6 +315,7 @@ export const StudentsPage = () => {
         title="Editar estudiante"
         onClose={handleCloseModalEdit}
         onAccept={handleAceptUpdateStudent}
+        buttonText="Editar"
       >
         <div className={styles["children-students"]}>
           <TextField
