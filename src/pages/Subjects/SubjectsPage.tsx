@@ -180,11 +180,13 @@ export const SubjectsPage = () => {
         iconAction={<SubjectAddIcon color="#ffffff" height={30} width={30} />}
         onButtonClick={handleOpenModalAdd}
       />
-      <TableUI
-        rows={subjects}
-        columns={columns}
-        pageSizeOptions={[5, 10, 15]}
-      />
+      <div className={styles["table-subjects"]}>
+        <TableUI
+          rows={subjects}
+          columns={columns}
+          pageSizeOptions={[10, 15, 30]}
+        />
+      </div>
       <ConfirmationDialog
         title={`¿Deseas eliminar la asignatura ${selectedSubject?.name}?`}
         description="Al aceptar, se borrará toda la información correspondiente a la asignatura. Esta acción no se puede revertir."
