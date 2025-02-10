@@ -1,0 +1,23 @@
+.children-students {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cell-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: center;
+  margin: auto;
+  gap: 0.5;
+}
+
+.table-students {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: 580px;
+  max-height: 650px;
+}

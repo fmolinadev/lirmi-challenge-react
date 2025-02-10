@@ -11,8 +11,8 @@ import {
 import { SubjectAddIcon, SubjectDeleteIcon, SubjectEditIcon } from "@/assets";
 import { SubjectInterface } from "@/interface";
 import { validateSubject } from "@/utils";
-import styles from "./subjects.module.css";
 import { toast } from "sonner";
+import styles from "./subjects.module.css";
 
 export const SubjectsPage = () => {
   const { subjects, addSubject, deleteSubject, updateSubject } =
