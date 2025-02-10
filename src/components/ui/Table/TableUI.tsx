@@ -7,7 +7,7 @@ interface BaseTableProps<T> {
   pageSizeOptions?: number[];
 }
 
-export const TableUI = <T extends { id: string | number }>({
+export const TableUI = <T extends { id: number }>({
   rows,
   columns,
   pageSizeOptions = [5, 10],

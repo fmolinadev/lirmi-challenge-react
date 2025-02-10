@@ -1,0 +1,10 @@
+.headSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: bold;
+}
