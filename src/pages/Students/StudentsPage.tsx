@@ -39,13 +39,11 @@ export const StudentsPage = () => {
 
   const handleCloseModalAdd = () => {
     setNameNewStudent(null);
-    setNameNewStudent(null);
+    setLastnameNewStudent(null);
     setAgeNewStudent("");
-
     setNameError(null);
     setLastnameError(null);
     setAgeError(null);
-
     setOpenModalAdd(false);
   };
   const handleOpenModalEdit = (student: StudentInterface) => {
@@ -129,12 +127,6 @@ export const StudentsPage = () => {
       };
 
       addStudent(newStudent);
-      setNameNewStudent(null);
-      setLastnameNewStudent(null);
-      setAgeNewStudent("");
-      setNameError(null);
-      setLastnameError(null);
-      setAgeError(null);
       toast.success("Estudiante creado con éxito!");
       handleCloseModalAdd();
     }
