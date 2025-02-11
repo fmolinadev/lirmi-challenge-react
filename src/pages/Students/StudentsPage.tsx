@@ -34,10 +34,11 @@ export const StudentsPage = () => {
   const [openDeleteDialog, setOpenDeleteDialog] = useState<boolean>(false);
 
   const [nameNewStudent, setNameNewStudent] = useState<string | null>(null);
-  const [lastnameNewStudent, setLastnameStudent] = useState<string | null>(
+  const [lastnameNewStudent, setLastnameNewStudent] = useState<string | null>(
     null
   );
-  const [ageNewStudent, setAgeNewStudent] = useState<number | string>("");
+  const [ageNewStudent, setAgeNewStudent] = useState<string | number>(0);
+
   const [nameError, setNameError] = useState<string | null>(null);
   const [lastnameError, setLastnameError] = useState<string | null>(null);
   const [ageError, setAgeError] = useState<string | null>(null);
@@ -58,7 +59,7 @@ export const StudentsPage = () => {
   const handleOpenModalEdit = (student: StudentInterface) => {
     setSelectedStudent(student);
     setNameNewStudent(student.name);
-    setLastnameStudent(student.lastname);
+    setLastnameNewStudent(student.lastname);
     setAgeNewStudent(student.age);
     setOpenModalEdit(true);
   };
@@ -66,7 +67,7 @@ export const StudentsPage = () => {
   const handleCloseModalEdit = () => {
     setSelectedStudent(null);
     setNameNewStudent(null);
-    setLastnameStudent(null);
+    setLastnameNewStudent(null);
     setAgeNewStudent("");
     setOpenModalEdit(false);
   };
@@ -97,15 +98,16 @@ export const StudentsPage = () => {
   };
 
   const handleLastnameChange = (value: string) => {
-    setLastnameStudent(value);
+    setLastnameNewStudent(value);
     if (value.trim().length >= 1) {
       setLastnameError(null);
     }
   };
 
   const handleChangeAge = (event: SelectChangeEvent) => {
-    setAgeNewStudent(event.target.value);
-    if (Number(event.target.value) >= 1) {
+    const value = event.target.value;
+    setAgeNewStudent(value);
+    if (Number(value) >= 1) {
       setAgeError(null);
     }
   };
@@ -136,7 +138,7 @@ export const StudentsPage = () => {
 
       addStudent(newStudent);
       setNameNewStudent(null);
-      setLastnameStudent(null);
+      setLastnameNewStudent(null);
       setAgeNewStudent("");
       setNameError(null);
       setLastnameError(null);
@@ -170,7 +172,7 @@ export const StudentsPage = () => {
       };
       updateStudent(selectedStudent.id, updatedStudent);
       setNameNewStudent(null);
-      setLastnameStudent(null);
+      setLastnameNewStudent(null);
       setAgeNewStudent("");
       setNameError(null);
       setLastnameError(null);
@@ -283,14 +285,13 @@ export const StudentsPage = () => {
             <Select
               labelId="age-label"
               id="demo-simple-select"
-              value={ageNewStudent ?? ""}
+              value={ageNewStudent.toString()}
               label="Edad"
               onChange={handleChangeAge}
               required
               error={!!ageError}
-              helperText={ageError}
             >
-              <MenuItem value="">
+              <MenuItem value={0}>
                 <em>Seleccionar</em>
               </MenuItem>
               <MenuItem value={5}>Cinco (5)</MenuItem>
@@ -347,12 +348,13 @@ export const StudentsPage = () => {
             <Select
               labelId="age-label"
               id="demo-simple-select"
-              value={ageNewStudent ?? ""}
+              value={ageNewStudent.toString()}
               label="Edad"
               onChange={handleChangeAge}
+              error={!!ageError}
               required
             >
-              <MenuItem value="">
+              <MenuItem value={0}>
                 <em>Seleccionar</em>
               </MenuItem>
               <MenuItem value={5}>Cinco (5)</MenuItem>
