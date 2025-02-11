@@ -16,6 +16,7 @@ Desarrollar una miniaplicación en Blazor que permita a los administradores del 
 - **Zustand**
 - **Driver JS**
 - **Vite**
+- **Despliegue en Vercel con CI/CD**
 
 ---
 
