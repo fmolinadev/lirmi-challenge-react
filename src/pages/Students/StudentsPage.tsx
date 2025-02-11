@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 import {
   FormControl,
   InputLabel,
@@ -9,6 +10,7 @@ import {
   Tooltip,
 } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
+import { ContentLayout } from "@/layouts";
 import { StudentAddIcon, StudentDeleteIcon, StudentEditIcon } from "@/assets";
 import {
   ConfirmationDialog,
@@ -18,9 +20,8 @@ import {
 } from "@/components";
 import { StudentInterface } from "@/interface";
 import { useStudentStore } from "@/store";
-import styles from "./students.module.css";
-import { toast } from "sonner";
 import { validateStudent } from "@/utils";
+import styles from "./students.module.css";
 
 export const StudentsPage = () => {
   const { students, addStudent, deleteStudent, updateStudent } =
@@ -221,7 +222,7 @@ export const StudentsPage = () => {
   ];
 
   return (
-    <div>
+    <ContentLayout>
       <HeadSection
         sectionTitle="Estudiantes"
         buttonTitle="Agregar estudiante"
@@ -372,6 +373,6 @@ export const StudentsPage = () => {
           </FormControl>
         </div>
       </ModalUI>
-    </div>
+    </ContentLayout>
   );
 };

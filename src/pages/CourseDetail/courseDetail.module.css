@@ -23,3 +23,9 @@
   flex-direction: row;
   gap: 0.3rem;
 }
+
+.describe-text {
+  text-align: start;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}

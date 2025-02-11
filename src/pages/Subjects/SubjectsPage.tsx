@@ -11,6 +11,7 @@ import {
 import { SubjectAddIcon, SubjectDeleteIcon, SubjectEditIcon } from "@/assets";
 import { SubjectInterface } from "@/interface";
 import { validateSubject } from "@/utils";
+import { ContentLayout } from "@/layouts";
 import { toast } from "sonner";
 import styles from "./subjects.module.css";
 
@@ -188,7 +189,7 @@ export const SubjectsPage = () => {
   ];
 
   return (
-    <div>
+    <ContentLayout>
       <HeadSection
         sectionTitle="Asignaturas"
         buttonTitle="Nueva asignatura"
@@ -279,6 +280,6 @@ export const SubjectsPage = () => {
           />
         </div>
       </ModalUI>
-    </div>
+    </ContentLayout>
   );
 };

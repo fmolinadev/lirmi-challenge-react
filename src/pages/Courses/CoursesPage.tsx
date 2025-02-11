@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { GridColDef } from "@mui/x-data-grid";
 import { TextField, Tooltip } from "@mui/material";
 import { useCourseStore } from "@/store";
+import { ContentLayout } from "@/layouts";
 import { CourseInterface } from "@/interface";
 import { HeadSection, ModalUI, TableUI } from "@/components";
 import { BookIcon, CourseAddIcon, CourseEditIcon, EyeViewIcon } from "@/assets";
@@ -159,7 +160,7 @@ export const CoursesPage = () => {
   ];
 
   return (
-    <div>
+    <ContentLayout>
       <HeadSection
         sectionTitle="Cursos"
         buttonTitle="Agregar Curso"
@@ -222,6 +223,6 @@ export const CoursesPage = () => {
           {colorError && <p>{colorError}</p>}
         </div>
       </ModalUI>
-    </div>
+    </ContentLayout>
   );
 };

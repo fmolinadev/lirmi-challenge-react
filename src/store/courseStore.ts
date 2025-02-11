@@ -12,6 +12,8 @@ interface CourseStoreState {
   addCourse: (course: CourseInterface) => void;
   updateCourse: (id: number, updatedCourse: Partial<CourseInterface>) => void;
   deleteCourse: (id: number) => void;
+  updateSubjectsCourse: (courseId: number, subjectIds: number[]) => void;
+  updateStudentsCourse: (courseId: number, studentIds: number[]) => void;
 }
 
 export const useCourseStore = create<CourseStoreState>((set) => ({
@@ -41,5 +43,18 @@ export const useCourseStore = create<CourseStoreState>((set) => ({
   deleteCourse: (id) => {
     courseService.delete(id);
     set({ courses: courseService.getAll() });
+  },
+  updateSubjectsCourse: (courseId, subjectIds) => {
+    courseService.updateSubjectsCourse(courseId, subjectIds);
+    set({ courses: courseService.getAll() });
+    const singleCourse = courseService.getById(courseId) || null;
+    set({ course: singleCourse });
+  },
+
+  updateStudentsCourse: (courseId, studentIds) => {
+    courseService.updateStudentsCourse(courseId, studentIds);
+    set({ courses: courseService.getAll() });
+    const singleCourse = courseService.getById(courseId) || null;
+    set({ course: singleCourse });
   },
 }));
