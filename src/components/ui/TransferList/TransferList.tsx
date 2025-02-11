@@ -9,8 +9,6 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
-import styles from "./transferList.module.css";
-
 interface TransferListProps<T> {
   leftItems: T[];
   rightItems: T[];

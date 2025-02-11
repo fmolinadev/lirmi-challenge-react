@@ -30,6 +30,7 @@ export const CourseDetailPage = () => {
   const [viewTab, setViewTab] = useState(0);
 
   const handleChangeTab = (event: React.SyntheticEvent, newValue: number) => {
+    event.preventDefault();
     setViewTab(newValue);
   };
   const [allStudents, setAllStudents] = useState<StudentInterface[]>([]);
