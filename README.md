@@ -139,7 +139,10 @@ Desarrollar una miniaplicación en Blazor que permita a los administradores del 
 
 ## Instrucciones de Configuración
 1. Clonar este repositorio.
-2. cd lirmi-challenge-react
+3. Acceder a la carpeta del proyecto:
+   ```bash
+   cd lirmi-challenge-react
+
 3. Instala las dependencias:
    ```bash
    npm i
