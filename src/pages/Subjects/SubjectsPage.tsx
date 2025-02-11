@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 import { TextField, Tooltip } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
 import { useSubjectStore } from "@/store";
@@ -12,7 +13,6 @@ import { SubjectAddIcon, SubjectDeleteIcon, SubjectEditIcon } from "@/assets";
 import { SubjectInterface } from "@/interface";
 import { validateSubject } from "@/utils";
 import { ContentLayout } from "@/layouts";
-import { toast } from "sonner";
 import styles from "./subjects.module.css";
 
 export const SubjectsPage = () => {
@@ -166,7 +166,7 @@ export const SubjectsPage = () => {
       headerName: "Acción",
       width: 120,
       renderCell: (params) => (
-        <>
+        <div className={styles["actions-placement"]}>
           <Tooltip title="Editar" placement="bottom-start">
             <SubjectEditIcon
               style={{ cursor: "pointer" }}
@@ -183,7 +183,7 @@ export const SubjectsPage = () => {
               }
             />
           </Tooltip>
-        </>
+        </div>
       ),
     },
   ];

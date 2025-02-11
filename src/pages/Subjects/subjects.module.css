@@ -12,6 +12,13 @@
   max-height: 650px;
 }
 
+.actions-placement {
+  display: flex;
+  justify-items: center;
+  vertical-align: middle;
+  margin-top: 0.5rem;
+}
+
 .truncated-text {
   white-space: nowrap;
   overflow: hidden;

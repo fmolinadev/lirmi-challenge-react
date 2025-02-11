@@ -118,7 +118,11 @@ export const CoursesPage = () => {
       field: "color",
       headerName: "Icono",
       width: 110,
-      renderCell: (params) => <BookIcon color={params.value} />,
+      renderCell: (params) => (
+        <div className={styles["actions-placement"]}>
+          <BookIcon color={params.value} />
+        </div>
+      ),
     },
     {
       field: "subjects",
@@ -141,7 +145,7 @@ export const CoursesPage = () => {
       headerName: "Acción",
       width: 120,
       renderCell: (params) => (
-        <>
+        <div className={styles["actions-placement"]}>
           <Tooltip title="Editar" placement="bottom-start">
             <CourseEditIcon
               style={{ cursor: "pointer" }}
@@ -154,7 +158,7 @@ export const CoursesPage = () => {
               onClick={() => navigate(`/course/${params.row.id}`)}
             />
           </Tooltip>
-        </>
+        </div>
       ),
     },
   ];

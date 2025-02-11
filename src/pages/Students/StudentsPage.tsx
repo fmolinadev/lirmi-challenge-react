@@ -199,7 +199,7 @@ export const StudentsPage = () => {
       headerName: "Acción",
       width: 110,
       renderCell: (params) => (
-        <div className={styles["cell-grid"]}>
+        <div className={styles["actions-placement"]}>
           <Tooltip title="Editar" placement="bottom-start">
             <StudentEditIcon
               style={{ cursor: "pointer" }}

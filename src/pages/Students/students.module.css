@@ -4,13 +4,12 @@
   gap: 2rem;
 }
 
-.cell-grid {
+.actions-placement {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-items: center;
   vertical-align: middle;
-  justify-content: center;
-  margin: auto;
+  margin-top: 0.5rem;
   gap: 0.5;
 }
 
