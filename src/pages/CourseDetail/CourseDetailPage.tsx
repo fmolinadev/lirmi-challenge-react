@@ -11,8 +11,8 @@ import {
 import { BookIcon } from "@/assets";
 import { ButtonUI, DividerUI, TransferList } from "@/components";
 import { Tab, Tabs } from "@mui/material";
-import styles from "./courseDetail.module.css";
 import { ContentLayout } from "@/layouts";
+import styles from "./courseDetail.module.css";
 
 function a11yProps(index: number) {
   return {

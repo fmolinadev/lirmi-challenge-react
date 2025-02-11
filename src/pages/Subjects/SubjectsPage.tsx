@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { TextField, Tooltip } from "@mui/material";
+import { Tooltip } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
 import { useSubjectStore } from "@/store";
 import {
   ConfirmationDialog,
   HeadSection,
-  ModalUI,
+  ModalActionSubject,
   TableUI,
 } from "@/components";
 import { SubjectAddIcon, SubjectDeleteIcon, SubjectEditIcon } from "@/assets";
@@ -212,74 +212,33 @@ export const SubjectsPage = () => {
         }}
         onCancel={handleCloseDialog}
       />
-      <ModalUI
+      <ModalActionSubject
         open={openModalAdd}
         title="Crear nueva asignatura"
         descriptionModal="Inserta el titulo de la asignatura y en caso que cuentes conn una descripción, icorporala"
         onClose={handleCloseModalAdd}
         onAccept={() => handleAcceptCreateSubject()}
         buttonText="Crear"
-      >
-        <div className={styles["children-container"]}>
-          <TextField
-            required
-            id="outlined-required"
-            label="Nombre: "
-            variant="standard"
-            size="small"
-            value={nameNewSubject ?? ""}
-            onChange={(e) => handleNameChange(e.target.value)}
-            error={!!nameError}
-            helperText={nameError}
-          />
-          <TextField
-            id="standard-multiline-static"
-            label="Descripción"
-            multiline
-            rows={4}
-            size="small"
-            variant="standard"
-            value={descriptionNewSubject ?? ""}
-            onChange={(e) => handleDescriptionChange(e.target.value)}
-            error={!!descriptionError}
-            helperText={descriptionError}
-          />
-        </div>
-      </ModalUI>
-      <ModalUI
+        nameNewSubject={nameNewSubject}
+        descriptionNewSubject={descriptionNewSubject}
+        nameError={nameError}
+        descriptionError={descriptionError}
+        onNameChange={handleNameChange}
+        onDescriptionChange={handleDescriptionChange}
+      />
+      <ModalActionSubject
         open={openModalEdit}
         title="Editar asignatura"
-        descriptionModal="Modifica los detalles de la asignatura"
         onClose={handleCloseModalEdit}
         onAccept={() => handleAcceptUpdateSubject()}
         buttonText="Editar"
-      >
-        <div className={styles["children-container"]}>
-          <TextField
-            required
-            id="outlined-required"
-            label="Nombre: "
-            variant="standard"
-            size="small"
-            value={nameNewSubject ?? ""}
-            onChange={(e) => handleNameChange(e.target.value)}
-            error={!!nameError}
-            helperText={nameError}
-          />
-          <TextField
-            id="standard-multiline-static"
-            label="Descripción"
-            multiline
-            rows={4}
-            size="small"
-            variant="standard"
-            value={descriptionNewSubject ?? ""}
-            onChange={(e) => handleDescriptionChange(e.target.value)}
-            error={!!descriptionError}
-            helperText={descriptionError}
-          />
-        </div>
-      </ModalUI>
+        nameNewSubject={nameNewSubject}
+        descriptionNewSubject={descriptionNewSubject}
+        nameError={nameError}
+        descriptionError={descriptionError}
+        onNameChange={handleNameChange}
+        onDescriptionChange={handleDescriptionChange}
+      />
     </ContentLayout>
   );
 };

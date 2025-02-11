@@ -5,3 +5,5 @@ export * from "./HeadSection";
 export * from "./Modal";
 export * from "./TransferList";
 export * from "./Divider";
+export * from "./ModalStudent";
+export * from "./ModalSubjects";

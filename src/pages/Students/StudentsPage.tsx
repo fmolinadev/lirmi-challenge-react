@@ -1,21 +1,13 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import {
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  TextField,
-  Tooltip,
-} from "@mui/material";
+import { SelectChangeEvent, Tooltip } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
 import { ContentLayout } from "@/layouts";
 import { StudentAddIcon, StudentDeleteIcon, StudentEditIcon } from "@/assets";
 import {
   ConfirmationDialog,
   HeadSection,
-  ModalUI,
+  ModalActionStudent,
   TableUI,
 } from "@/components";
 import { StudentInterface } from "@/interface";
@@ -248,133 +240,39 @@ export const StudentsPage = () => {
         }}
         onCancel={handleClickCloseDialog}
       />
-      <ModalUI
+      <ModalActionStudent
         open={openModalAdd}
         title="Agregar nuevo estudiante"
-        descriptionModal="Completa el perfil del nuevo estudiante. Recorda que puedes editar la información luego de crearlo."
+        description="Completa el perfil del nuevo estudiante. Recorda que puedes editar la información luego de crearlo."
         onClose={handleCloseModalAdd}
         onAccept={handleAceptAddStudent}
         buttonText="Agregar"
-      >
-        <div className={styles["children-students"]}>
-          <TextField
-            required
-            id="outlined-required"
-            label="Nombre: "
-            variant="standard"
-            size="small"
-            value={nameNewStudent ?? ""}
-            onChange={(e) => handleNameChange(e.target.value)}
-            error={!!nameError}
-            helperText={nameError}
-          />
-          <TextField
-            required
-            id="outlined-required"
-            label="Apellido: "
-            variant="standard"
-            size="small"
-            value={lastnameNewStudent ?? ""}
-            onChange={(e) => handleLastnameChange(e.target.value)}
-            error={!!lastnameError}
-            helperText={lastnameError}
-          />
-
-          <FormControl variant="standard" sx={{ minWidth: 140 }}>
-            <InputLabel id="age-label">Edad</InputLabel>
-            <Select
-              labelId="age-label"
-              id="demo-simple-select"
-              value={ageNewStudent.toString()}
-              label="Edad"
-              onChange={handleChangeAge}
-              required
-              error={!!ageError}
-            >
-              <MenuItem value={0}>
-                <em>Seleccionar</em>
-              </MenuItem>
-              <MenuItem value={5}>Cinco (5)</MenuItem>
-              <MenuItem value={6}>Seis (6)</MenuItem>
-              <MenuItem value={7}>Siete (7)</MenuItem>
-              <MenuItem value={8}>Ocho (8)</MenuItem>
-              <MenuItem value={9}>Nueve (9)</MenuItem>
-              <MenuItem value={10}>Diez (10)</MenuItem>
-              <MenuItem value={11}>Once (11)</MenuItem>
-              <MenuItem value={12}>Doce (12)</MenuItem>
-              <MenuItem value={13}>Trece (13)</MenuItem>
-              <MenuItem value={14}>Catorce (14)</MenuItem>
-              <MenuItem value={15}>Quince (15)</MenuItem>
-              <MenuItem value={16}>Dieciséis (16)</MenuItem>
-              <MenuItem value={17}>Diecisiete (17)</MenuItem>
-              <MenuItem value={18}>Dieciocho (18)</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
-      </ModalUI>
-      <ModalUI
+        name={nameNewStudent}
+        nameError={nameError}
+        lastname={lastnameNewStudent}
+        lastnameError={lastnameError}
+        age={ageNewStudent}
+        ageError={ageError}
+        onNameChange={handleNameChange}
+        onLastnameChange={handleLastnameChange}
+        onAgeChange={handleChangeAge}
+      />
+      <ModalActionStudent
         open={openModalEdit}
         title="Editar estudiante"
         onClose={handleCloseModalEdit}
         onAccept={handleAceptUpdateStudent}
         buttonText="Editar"
-      >
-        <div className={styles["children-students"]}>
-          <TextField
-            required
-            id="outlined-required"
-            label="Nombre: "
-            variant="standard"
-            size="small"
-            value={nameNewStudent ?? ""}
-            onChange={(e) => handleNameChange(e.target.value)}
-            error={!!nameError}
-            helperText={nameError}
-          />
-          <TextField
-            required
-            id="outlined-required"
-            label="Apellido: "
-            variant="standard"
-            size="small"
-            value={lastnameNewStudent ?? ""}
-            onChange={(e) => handleLastnameChange(e.target.value)}
-            error={!!lastnameError}
-            helperText={lastnameError}
-          />
-
-          <FormControl variant="standard" sx={{ minWidth: 140 }}>
-            <InputLabel id="age-label">Edad</InputLabel>
-            <Select
-              labelId="age-label"
-              id="demo-simple-select"
-              value={ageNewStudent.toString()}
-              label="Edad"
-              onChange={handleChangeAge}
-              error={!!ageError}
-              required
-            >
-              <MenuItem value={0}>
-                <em>Seleccionar</em>
-              </MenuItem>
-              <MenuItem value={5}>Cinco (5)</MenuItem>
-              <MenuItem value={6}>Seis (6)</MenuItem>
-              <MenuItem value={7}>Siete (7)</MenuItem>
-              <MenuItem value={8}>Ocho (8)</MenuItem>
-              <MenuItem value={9}>Nueve (9)</MenuItem>
-              <MenuItem value={10}>Diez (10)</MenuItem>
-              <MenuItem value={11}>Once (11)</MenuItem>
-              <MenuItem value={12}>Doce (12)</MenuItem>
-              <MenuItem value={13}>Trece (13)</MenuItem>
-              <MenuItem value={14}>Catorce (14)</MenuItem>
-              <MenuItem value={15}>Quince (15)</MenuItem>
-              <MenuItem value={16}>Dieciséis (16)</MenuItem>
-              <MenuItem value={17}>Diecisiete (17)</MenuItem>
-              <MenuItem value={18}>Dieciocho (18)</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
-      </ModalUI>
+        name={nameNewStudent}
+        nameError={nameError}
+        lastname={lastnameNewStudent}
+        lastnameError={lastnameError}
+        age={ageNewStudent}
+        ageError={ageError}
+        onNameChange={handleNameChange}
+        onLastnameChange={handleLastnameChange}
+        onAgeChange={handleChangeAge}
+      />
     </ContentLayout>
   );
 };
