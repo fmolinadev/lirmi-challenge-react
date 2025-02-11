@@ -1,7 +1,7 @@
 import { SVGProps } from "react";
 import { IconBaseInterface } from "@/interface";
 
-const SubjectDeleteIcon = ({
+const StudentAddIcon = ({
   color = "#5016e1",
   ...props
 }: SVGProps<SVGSVGElement> & IconBaseInterface) => (
@@ -9,57 +9,51 @@ const SubjectDeleteIcon = ({
     xmlns="http://www.w3.org/2000/svg"
     xmlSpace="preserve"
     fill="none"
-    width={30}
-    height={30}
-    viewBox="0 0 25 25"
+    width={40}
+    height={40}
+    viewBox="0 0 32 32"
     {...props}
   >
-    <path
-      d="m7.88 7.88 4.24 4.24"
+    <circle
+      cx={14}
+      cy={11}
+      r={6}
       style={{
         fill: "none",
         stroke: color,
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
         strokeWidth: 2,
+        strokeMiterlimit: 10,
       }}
     />
     <path
-      d="m7.88 12.12 4.24-4.24"
-      data-name="secondary"
+      d="M5 26a9 9 0 0 1 9-9 8.96 8.96 0 0 1 5.032 1.537"
       style={{
         fill: "none",
         stroke: color,
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
         strokeWidth: 2,
+        strokeMiterlimit: 10,
       }}
     />
-    <rect
-      width={14}
-      height={14}
-      x={3}
-      y={3}
-      rx={1}
+    <circle
+      cx={24}
+      cy={24}
+      r={7}
       style={{
         fill: "none",
         stroke: color,
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
         strokeWidth: 2,
+        strokeMiterlimit: 10,
       }}
     />
     <path
-      d="M7 21h13a1 1 0 0 0 1-1V5"
-      data-name="primary"
+      d="M24 28v-8M20 24h8"
       style={{
         fill: "none",
         stroke: color,
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
         strokeWidth: 2,
+        strokeMiterlimit: 10,
       }}
     />
   </svg>
 );
-export { SubjectDeleteIcon };
+export { StudentAddIcon };

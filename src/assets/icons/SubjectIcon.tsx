@@ -7,9 +7,9 @@ const SubjectIcon = ({
 }: SVGProps<SVGSVGElement> & IconBaseInterface) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={800}
-    height={800}
-    viewBox="0 0 28 28"
+    width={30}
+    height={30}
+    viewBox="0 0 25 25"
     {...props}
   >
     <title>{"ic_fluent_signature_28_regular"}</title>

@@ -1,7 +1,7 @@
 import { SVGProps } from "react";
 import { IconBaseInterface } from "@/interface";
 
-const BookIcon = ({
+const StudentEditIcon = ({
   color = "#5016e1",
   ...props
 }: SVGProps<SVGSVGElement> & IconBaseInterface) => (
@@ -18,9 +18,9 @@ const BookIcon = ({
       stroke={color}
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={2}
-      d="M4 19V6.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C5.52 3 6.08 3 7.2 3h9.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C20 4.52 20 5.08 20 6.2V17H6a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h14M9 7h6m-6 4h6m4 6v4"
+      strokeWidth={1.5}
+      d="M12.2 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10ZM21.59 16.35l-5.09 5.09c-.51.5-2 .74-2.35.4a2.48 2.48 0 0 1 .41-2.34l5.09-5.1a1.38 1.38 0 0 1 1.94 1.95v0ZM3 22a9.71 9.71 0 0 1 9-7"
     />
   </svg>
 );
-export { BookIcon };
+export { StudentEditIcon };

@@ -8,3 +8,8 @@ export * from "./EyeViewIcon";
 export * from "./SubjectAddIcon";
 export * from "./SubjectEditIcon";
 export * from "./SubjectDeleteIcon";
+export * from "./StudentAddIcon";
+export * from "./StudentDeleteIcon";
+export * from "./StudentEditIcon";
+export * from "./CourseEditIcon";
+export * from "./CourseAddIcon";

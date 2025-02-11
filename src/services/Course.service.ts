@@ -12,6 +12,10 @@ export class CourseService implements IDataSource<CourseInterface> {
     return [...this.courses];
   }
 
+  getById(id: number): CourseInterface | undefined {
+    return this.courses.find((course) => course.id === id);
+  }
+
   add(course: CourseInterface): void {
     this.courses.push({ ...course });
   }
@@ -25,50 +29,19 @@ export class CourseService implements IDataSource<CourseInterface> {
   delete(id: number): void {
     this.courses = this.courses.filter((c) => c.id !== id);
   }
-
-  linkSubject(courseId: number, subjectId: number): void {
-    this.courses = this.courses.map((course) => {
-      if (course.id === courseId && !course.subjects.includes(subjectId)) {
-        return {
-          ...course,
-          subjects: [...course.subjects, subjectId],
-        };
-      }
-      return course;
-    });
-  }
-
-  unlinkSubject(courseId: number, subjectId: number): void {
+  updateSubjectsCourse(courseId: number, subjectIds: number[]): void {
     this.courses = this.courses.map((course) => {
       if (course.id === courseId) {
-        return {
-          ...course,
-          subjects: course.subjects.filter((id) => id !== subjectId),
-        };
+        return { ...course, subjects: subjectIds };
       }
       return course;
     });
   }
 
-  linkStudent(courseId: number, studentId: number): void {
-    this.courses = this.courses.map((course) => {
-      if (course.id === courseId && !course.students.includes(studentId)) {
-        return {
-          ...course,
-          students: [...course.students, studentId],
-        };
-      }
-      return course;
-    });
-  }
-
-  unlinkStudent(courseId: number, studentId: number): void {
+  updateStudentsCourse(courseId: number, studentIds: number[]): void {
     this.courses = this.courses.map((course) => {
       if (course.id === courseId) {
-        return {
-          ...course,
-          students: course.students.filter((id) => id !== studentId),
-        };
+        return { ...course, students: studentIds };
       }
       return course;
     });

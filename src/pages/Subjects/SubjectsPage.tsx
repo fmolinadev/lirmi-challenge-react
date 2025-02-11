@@ -1,18 +1,19 @@
 import { useState } from "react";
-import { TextField, Tooltip } from "@mui/material";
+import { toast } from "sonner";
+import { Tooltip } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
 import { useSubjectStore } from "@/store";
 import {
   ConfirmationDialog,
   HeadSection,
-  ModalUI,
+  ModalActionSubject,
   TableUI,
 } from "@/components";
 import { SubjectAddIcon, SubjectDeleteIcon, SubjectEditIcon } from "@/assets";
 import { SubjectInterface } from "@/interface";
 import { validateSubject } from "@/utils";
+import { ContentLayout } from "@/layouts";
 import styles from "./subjects.module.css";
-import { toast } from "sonner";
 
 export const SubjectsPage = () => {
   const { subjects, addSubject, deleteSubject, updateSubject } =
@@ -149,14 +150,23 @@ export const SubjectsPage = () => {
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 60 },
-    { field: "name", headerName: "Nombre", width: 280 },
-    { field: "description", headerName: "Descripción", width: 590 },
+    { field: "name", headerName: "Nombre", width: 180 },
+    {
+      field: "description",
+      headerName: "Descripción",
+      width: 480,
+      renderCell: (params) => (
+        <div className={styles["truncated-text"]} title={params.value}>
+          {params.value}
+        </div>
+      ),
+    },
     {
       field: "action",
       headerName: "Acción",
       width: 120,
       renderCell: (params) => (
-        <>
+        <div className={styles["actions-placement"]}>
           <Tooltip title="Editar" placement="bottom-start">
             <SubjectEditIcon
               style={{ cursor: "pointer" }}
@@ -173,13 +183,13 @@ export const SubjectsPage = () => {
               }
             />
           </Tooltip>
-        </>
+        </div>
       ),
     },
   ];
 
   return (
-    <div>
+    <ContentLayout>
       <HeadSection
         sectionTitle="Asignaturas"
         buttonTitle="Nueva asignatura"
@@ -202,72 +212,33 @@ export const SubjectsPage = () => {
         }}
         onCancel={handleCloseDialog}
       />
-      <ModalUI
+      <ModalActionSubject
         open={openModalAdd}
         title="Crear nueva asignatura"
         descriptionModal="Inserta el titulo de la asignatura y en caso que cuentes conn una descripción, icorporala"
         onClose={handleCloseModalAdd}
         onAccept={() => handleAcceptCreateSubject()}
-      >
-        <div className={styles["children-container"]}>
-          <TextField
-            required
-            id="outlined-required"
-            label="Nombre: "
-            variant="standard"
-            size="small"
-            value={nameNewSubject ?? ""}
-            onChange={(e) => handleNameChange(e.target.value)}
-            error={!!nameError}
-            helperText={nameError}
-          />
-          <TextField
-            id="standard-multiline-static"
-            label="Descripción"
-            multiline
-            rows={4}
-            size="small"
-            variant="standard"
-            value={descriptionNewSubject ?? ""}
-            onChange={(e) => handleDescriptionChange(e.target.value)}
-            error={!!descriptionError}
-            helperText={descriptionError}
-          />
-        </div>
-      </ModalUI>
-      <ModalUI
+        buttonText="Crear"
+        nameNewSubject={nameNewSubject}
+        descriptionNewSubject={descriptionNewSubject}
+        nameError={nameError}
+        descriptionError={descriptionError}
+        onNameChange={handleNameChange}
+        onDescriptionChange={handleDescriptionChange}
+      />
+      <ModalActionSubject
         open={openModalEdit}
         title="Editar asignatura"
-        descriptionModal="Modifica los detalles de la asignatura"
         onClose={handleCloseModalEdit}
         onAccept={() => handleAcceptUpdateSubject()}
-      >
-        <div className={styles["children-container"]}>
-          <TextField
-            required
-            id="outlined-required"
-            label="Nombre: "
-            variant="standard"
-            size="small"
-            value={nameNewSubject ?? ""}
-            onChange={(e) => handleNameChange(e.target.value)}
-            error={!!nameError}
-            helperText={nameError}
-          />
-          <TextField
-            id="standard-multiline-static"
-            label="Descripción"
-            multiline
-            rows={4}
-            size="small"
-            variant="standard"
-            value={descriptionNewSubject ?? ""}
-            onChange={(e) => handleDescriptionChange(e.target.value)}
-            error={!!descriptionError}
-            helperText={descriptionError}
-          />
-        </div>
-      </ModalUI>
-    </div>
+        buttonText="Editar"
+        nameNewSubject={nameNewSubject}
+        descriptionNewSubject={descriptionNewSubject}
+        nameError={nameError}
+        descriptionError={descriptionError}
+        onNameChange={handleNameChange}
+        onDescriptionChange={handleDescriptionChange}
+      />
+    </ContentLayout>
   );
 };

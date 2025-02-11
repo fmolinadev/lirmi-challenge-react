@@ -9,9 +9,9 @@ const SubjectAddIcon = ({
     xmlns="http://www.w3.org/2000/svg"
     xmlSpace="preserve"
     fill="none"
-    width={40}
-    height={40}
-    viewBox="0 0 32 32"
+    width={30}
+    height={30}
+    viewBox="0 0 25 25"
     {...props}
   >
     <path
