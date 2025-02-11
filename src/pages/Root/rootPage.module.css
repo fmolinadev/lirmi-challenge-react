@@ -38,6 +38,7 @@
   object-fit: contain;
   position: relative;
   z-index: 1;
+  animation: fadeInGradient 0.2s ease-in-out;
 }
 
 .content-layout {
@@ -135,5 +136,16 @@
   100% {
     opacity: 1;
     transform: scale(1.2);
+  }
+}
+
+@keyframes fadeInGradient {
+  0% {
+    opacity: 0;
+    filter: brightness(50%);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(100%);
   }
 }
