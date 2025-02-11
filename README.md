@@ -139,17 +139,18 @@ Desarrollar una miniaplicación en Blazor que permita a los administradores del 
 
 ## Instrucciones de Configuración
 1. Clonar este repositorio.
-3. Acceder a la carpeta del proyecto:
+2. Acceder a la carpeta del proyecto:
    ```bash
    cd lirmi-challenge-react
 
 3. Instala las dependencias:
    ```bash
    npm i
-3. Ejecutar el proyecto:
+4. Ejecutar el proyecto:
    ```bash
    npm run dev
-2. Se puede ver deploy en [Vercel](https://lirmi-challenge-react.vercel.app/).
+   
+Se puede ver deploy en [Vercel](https://lirmi-challenge-react.vercel.app/).
 
 ## Autor
 
