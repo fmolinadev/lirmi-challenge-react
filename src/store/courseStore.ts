@@ -6,7 +6,9 @@ const courseService = new CourseService();
 
 interface CourseStoreState {
   courses: CourseInterface[];
+  course: CourseInterface | null;
   fetchCourses: () => Promise<void>;
+  fetchOneCourse: (id: number) => Promise<void>;
   addCourse: (course: CourseInterface) => void;
   updateCourse: (id: number, updatedCourse: Partial<CourseInterface>) => void;
   deleteCourse: (id: number) => void;
@@ -14,8 +16,17 @@ interface CourseStoreState {
 
 export const useCourseStore = create<CourseStoreState>((set) => ({
   courses: [],
+  course: null,
 
-  fetchCourses: async () => set({ courses: courseService.getAll() }),
+  fetchCourses: async () => {
+    const allCourses = courseService.getAll();
+    set({ courses: allCourses });
+  },
+
+  fetchOneCourse: async (id) => {
+    const singleCourse = courseService.getById(id) || null;
+    set({ course: singleCourse });
+  },
 
   addCourse: (course) => {
     courseService.add(course);

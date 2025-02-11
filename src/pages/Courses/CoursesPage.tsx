@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { HexColorPicker } from "react-colorful";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import { GridColDef } from "@mui/x-data-grid";
 import { TextField, Tooltip } from "@mui/material";
 import { useCourseStore } from "@/store";
 import { CourseInterface } from "@/interface";
 import { HeadSection, ModalUI, TableUI } from "@/components";
 import { BookIcon, CourseAddIcon, CourseEditIcon, EyeViewIcon } from "@/assets";
-import styles from "./course.module.css";
 import { validateCourse } from "@/utils";
-import { toast } from "sonner";
+import styles from "./course.module.css";
 
 export const CoursesPage = () => {
   const navigate = useNavigate();
@@ -36,20 +36,18 @@ export const CoursesPage = () => {
     setOpenModalEdit(true);
   };
 
-  const handleCloseModalAdd = () => {
+  const resetModalState = () => {
     setColorError(null);
     setNameError(null);
     setNameNewCourse("");
     setColorNewCourse("#b32aa9");
-    setOpenModalAdd(false);
   };
 
-  const handleCloseModalEdit = () => {
-    setColorError(null);
-    setNameError(null);
-    setNameNewCourse("");
-    setColorNewCourse("#b32aa9");
-    setOpenModalEdit(false);
+  const handleCloseModal = (
+    setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    resetModalState();
+    setOpenModal(false);
   };
 
   const handleNameChange = (value: string) => {
@@ -84,12 +82,8 @@ export const CoursesPage = () => {
       };
 
       addCourse(newCourse);
-      setNameNewCourse("");
-      setColorNewCourse("#b32aa9");
-      setNameError(null);
-      setColorError(null);
       toast.success("Curso creada satisfactoriamente!");
-      handleCloseModalAdd();
+      handleCloseModal(setOpenModalAdd);
     }
   };
 
@@ -112,12 +106,8 @@ export const CoursesPage = () => {
       };
 
       updateCourse(selectedCourse.id, updatedCourse);
-      setNameNewCourse("");
-      setColorNewCourse("#b32aa9");
-      setNameError(null);
-      setColorError(null);
       toast.success("Curso actualizado con éxito!");
-      handleCloseModalEdit();
+      handleCloseModal(setOpenModalEdit);
     }
   };
 
@@ -187,7 +177,7 @@ export const CoursesPage = () => {
         open={openModalAdd}
         title="Crear curso"
         descriptionModal="Difine un nuevo curso para administrar en tu colegio"
-        onClose={handleCloseModalAdd}
+        onClose={() => handleCloseModal(setOpenModalAdd)}
         onAccept={() => handleAcceptCreateCourse()}
         buttonText="Crear"
       >
@@ -211,7 +201,7 @@ export const CoursesPage = () => {
       <ModalUI
         open={openModalEdit}
         title="Editar curso"
-        onClose={handleCloseModalEdit}
+        onClose={() => handleCloseModal(setOpenModalEdit)}
         onAccept={() => handleAcceptUpdateCourse()}
         buttonText="Editar"
       >

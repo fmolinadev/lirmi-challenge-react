@@ -12,6 +12,10 @@ export class CourseService implements IDataSource<CourseInterface> {
     return [...this.courses];
   }
 
+  getById(id: number): CourseInterface | undefined {
+    return this.courses.find((course) => course.id === id);
+  }
+
   add(course: CourseInterface): void {
     this.courses.push({ ...course });
   }

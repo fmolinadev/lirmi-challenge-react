@@ -149,8 +149,17 @@ export const SubjectsPage = () => {
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 60 },
-    { field: "name", headerName: "Nombre", width: 280 },
-    { field: "description", headerName: "Descripción", width: 590 },
+    { field: "name", headerName: "Nombre", width: 180 },
+    {
+      field: "description",
+      headerName: "Descripción",
+      width: 480,
+      renderCell: (params) => (
+        <div className={styles["truncated-text"]} title={params.value}>
+          {params.value}
+        </div>
+      ),
+    },
     {
       field: "action",
       headerName: "Acción",

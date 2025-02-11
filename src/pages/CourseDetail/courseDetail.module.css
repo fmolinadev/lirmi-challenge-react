@@ -1,0 +1,25 @@
+.title-placement {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: start;
+  height: 2rem;
+}
+
+.book-container {
+  display: flex;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.color-view {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+}
