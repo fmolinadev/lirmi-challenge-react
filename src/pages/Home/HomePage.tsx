@@ -7,6 +7,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
+import styles from "./home.module.css";
 
 export const HomePage = () => {
   const { totalCourses, totalStudents, totalSubjects, fetchSummary } =
@@ -32,14 +33,8 @@ export const HomePage = () => {
 
   return (
     <ContentLayout>
-      <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold" }}>
-        Bienvenido al Resumen General
-      </Typography>
-      <Typography
-        variant="body1"
-        gutterBottom
-        sx={{ marginBottom: "1rem", color: "text.secondary" }}
-      >
+      <h1 className={styles["section-title"]}>Bienvenido al Resumen General</h1>
+      <Typography variant="body1" gutterBottom sx={{ marginBottom: "1rem" }}>
         Aquí puedes ver un resumen rápido de las estadísticas actuales de
         nuestra plataforma.
       </Typography>
@@ -57,8 +52,6 @@ export const HomePage = () => {
             key={item.title}
             style={{ textDecoration: "none" }}
           >
-            {" "}
-            {/* Link que envuelve la tarjeta */}
             <Card
               sx={{
                 boxShadow: 3,
@@ -82,9 +75,7 @@ export const HomePage = () => {
                   >
                     {item.title}
                   </Typography>
-                  <Typography variant="h5" color="text.primary">
-                    {item.value}
-                  </Typography>
+                  <Typography variant="h5">{item.value}</Typography>
                 </CardContent>
               </CardActionArea>
             </Card>
