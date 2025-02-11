@@ -105,7 +105,7 @@ export const StudentsPage = () => {
 
   const handleChangeAge = (event: SelectChangeEvent) => {
     setAgeNewStudent(event.target.value);
-    if (event.target.value >= 1) {
+    if (Number(event.target.value) >= 1) {
       setAgeError(null);
     }
   };
@@ -191,7 +191,7 @@ export const StudentsPage = () => {
       width: 100,
       renderCell: (params) => {
         const course = params.row.course;
-        return course ? course : "Sin asignar";
+        return course || "Sin asignar";
       },
     },
     {
